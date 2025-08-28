@@ -14,11 +14,11 @@ Two issues, namely [#5215](https://gitlab.rtems.org/rtems/rtos/rtems/-/issues/52
 
 While the necessaties of removing the functions were understood, It was decided to replace it with `rtems_interrupt_handler_install()` after suggestions from my mentors. The details of it are in this blog: [What should be the replacement for `set_vector()`?](https://blog.sunilhegde.tech/blog/what_should_be_the_replacement_for_set_vector)
 
-## Merge requests and Problems
-
 All of my blogs majorly targeted the issues on SPARC specific implementation. The necessities of clearing and unmasking the interrupts are explained in this blog: [Why is it required to Clear and Unmask an Interrupt?](https://blog.sunilhegde.tech/blog/why_is_it_required_to_clear_and_unmask_an_interrupt)
 
 I also found it difficult to trace the test failures to their origin during changes to SPARC bsps, and had to learn how interrupts are treated on SPARC boards and in RTEMS. After all the problems were targeted, my first merge request for SPARC boards was merged and soon NIOS II, m68k, microblaze, templates and cpukit followed.
+
+## Merge requests
 
 Here is the list of merged MRs:
 - [sparc: removed uses, prototype and implementation of set_vector()](https://gitlab.rtems.org/rtems/rtos/rtems/-/merge_requests/447)
@@ -51,4 +51,4 @@ Over the past three months, I have become familiar with different parts of the R
 Just as I studied interrupt handling theory while drafting my proposal, I have now begun exploring the underlying concepts of MMUs and their importance in operating systems. Although my final exams are coming up soon, I plan to resume this work once they are completed and continue contributing to RTEMS.
 
 ## Conclusion 
-None of this would have been possible without the invaluable guidance I received throughout the coding period from my mentors **Joel, Gedare, and the entire RTEMS community**. Beyond the project itself, I also learned many important lessons, from maintaining backup branches to safeguard work, to the value of thorough documentation, and most importantly, the role of curiosity in software engineering. These lessons will stay with me and prove useful in the years ahead. I am deeply grateful to my mentors, the community, and to **Google** for providing me with this opportunity and experience.
+None of this would have been possible without the invaluable guidance I received throughout the coding period from my mentors **Joel, Gedare, and the entire RTEMS community**. Beyond the project itself, I also learnt many important lessons, from maintaining backup branches to safeguard work, to the value of thorough documentation, and most importantly, the role of curiosity in software engineering. These lessons will stay with me and prove useful in the years ahead. I am deeply grateful to my mentors, the community, and to **Google** for providing me with this opportunity and experience.
