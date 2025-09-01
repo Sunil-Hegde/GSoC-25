@@ -4,20 +4,6 @@
 
 In my [proposal](./SunilHegde_Proposal_RTEMS_GSoc25.pdf), I have explained in detail why `set_vector()` had to be removed and  I had discussed on trying different solutions. While my contributions roughly remained in the same perimeter as discussed in my propoal, I did some additions.
 
-## Challenges
-
-While drafting my proposal, I had faced numerous challenges starting from building RTEMS tools due to various issues on my computer to understanding whys, wheres and hows of the project I had selected. 
-
-Two issues, namely [#5215](https://gitlab.rtems.org/rtems/rtos/rtems/-/issues/5215) and [#4171](https://gitlab.rtems.org/rtems/rtos/rtems/-/issues/4171) discussed in detail on why the said function's removal was necessary. I have discussed the same in detail in these blog posts:
-- [Why `set_vector()`?](https://blog.sunilhegde.tech/blog/why_set_vector)
-- [Why remove `set_vector()`?](https://blog.sunilhegde.tech/blog/why_remove_set_vector)
-
-While the necessaties of removing the functions were understood, It was decided to replace it with `rtems_interrupt_handler_install()` after suggestions from my mentors. The details of it are in this blog: [What should be the replacement for `set_vector()`?](https://blog.sunilhegde.tech/blog/what_should_be_the_replacement_for_set_vector)
-
-All of my blogs majorly targeted the issues on SPARC specific implementation. The necessities of clearing and unmasking the interrupts are explained in this blog: [Why is it required to Clear and Unmask an Interrupt?](https://blog.sunilhegde.tech/blog/why_is_it_required_to_clear_and_unmask_an_interrupt)
-
-I also found it difficult to trace the test failures to their origin during changes to SPARC bsps, and had to learn how interrupts are treated on SPARC boards and in RTEMS. After all the problems were targeted, my first merge request for SPARC boards was merged and soon NIOS II, m68k, microblaze, templates and cpukit followed.
-
 ## Merge requests
 
 Here is the list of merged MRs:
@@ -35,6 +21,20 @@ Changes to the documentation: [bsp-howto and cpu-supplement/sparc.md: Updates re
 All the updates are tracked on RTEMS EPICS [here](https://gitlab.rtems.org/groups/rtems/-/epics/26).
 
 The final updates regarding all the changes are in [this](https://blog.sunilhegde.tech/blog/gsoc_update_set_vector_is_gone) blog.
+
+## Challenges
+
+While drafting my proposal, I had faced numerous challenges starting from building RTEMS tools due to various issues on my computer to understanding whys, wheres and hows of the project I had selected. 
+
+Two issues, namely [#5215](https://gitlab.rtems.org/rtems/rtos/rtems/-/issues/5215) and [#4171](https://gitlab.rtems.org/rtems/rtos/rtems/-/issues/4171) discussed in detail on why the said function's removal was necessary. I have discussed the same in detail in these blog posts:
+- [Why `set_vector()`?](https://blog.sunilhegde.tech/blog/why_set_vector)
+- [Why remove `set_vector()`?](https://blog.sunilhegde.tech/blog/why_remove_set_vector)
+
+While the necessaties of removing the functions were understood, It was decided to replace it with `rtems_interrupt_handler_install()` after suggestions from my mentors. The details of it are in this blog: [What should be the replacement for `set_vector()`?](https://blog.sunilhegde.tech/blog/what_should_be_the_replacement_for_set_vector)
+
+All of my blogs majorly targeted the issues on SPARC specific implementation. The necessities of clearing and unmasking the interrupts are explained in this blog: [Why is it required to Clear and Unmask an Interrupt?](https://blog.sunilhegde.tech/blog/why_is_it_required_to_clear_and_unmask_an_interrupt)
+
+I also found it difficult to trace the test failures to their origin during changes to SPARC bsps, and had to learn how interrupts are treated on SPARC boards and in RTEMS. After all the problems were targeted, my first merge request for SPARC boards was merged and soon NIOS II, m68k, microblaze, templates and cpukit followed.
 
 ## Learnings
 
